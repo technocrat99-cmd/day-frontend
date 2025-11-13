@@ -3,7 +3,7 @@ import Login from '../views/Login.vue'
 
 
 
-const Login = () => import('@/views/Login.vue');
+
 
 const Home = {
   template: `

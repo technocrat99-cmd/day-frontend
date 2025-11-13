@@ -65,11 +65,10 @@ const onSubmit = async () => {
   }
 
   try {
-    loading.value = true;
-    const { data } = await http.post('/api/auth/login', {
-      username: form.username,
-      password: form.password,
-    });
+    const { data } = await http.post('/auth/login', {
+  username: form.username,
+  password: form.password,
+});
 
     // 期望后端返回 { token, user }
     const token = data?.token;

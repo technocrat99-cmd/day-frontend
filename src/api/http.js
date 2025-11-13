@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE || 'http://localhost:8080',
-  timeout: 10000,
-});
+  baseURL: import.meta.env.DEV
+    ? '/api'                      // 开发环境：走 Vite 代理
+    : 'http://localhost:8080/api' // 生产环境：你以后可以换成正式后端地址
+})
 
 http.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
